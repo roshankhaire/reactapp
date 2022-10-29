@@ -1,6 +1,7 @@
 
 import './App.css';
 import Expense from './components/Expenses/Expense';
+import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 function App() {
   // let expensedate=new Date(2021, 3 ,25)
   // let expenseTitle="School Fees"
@@ -30,9 +31,10 @@ function App() {
   ]
   return (
     <div className="App">
+         <ExpenseForm/>
      <Expense item={expenses}/>
      
-          <h2>Learn React</h2>
+       
        
     </div>
   );

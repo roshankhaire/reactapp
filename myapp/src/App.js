@@ -1,7 +1,8 @@
 
 import './App.css';
 import Expense from './components/Expenses/Expense';
-import ExpenseForm from './components/ExpenseForm/ExpenseForm';
+
+import NewExpense from './components/NewExpense';
 function App() {
   // let expensedate=new Date(2021, 3 ,25)
   // let expenseTitle="School Fees"
@@ -31,7 +32,7 @@ function App() {
   ]
   return (
     <div className="App">
-         <ExpenseForm/>
+         <NewExpense/>
      <Expense item={expenses}/>
      
        

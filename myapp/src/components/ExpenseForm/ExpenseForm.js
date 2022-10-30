@@ -1,9 +1,10 @@
 import React,{useState}from "react";
 import './ExpenseForm.css';
-const ExpenseForm=()=>{
-     const [enteredTitle,setenteredTitle]=useState('');
-     const [enteredAmount,setenteredAmount]=useState('');
-     const [enteredDate,setenteredDate]=useState('');
+
+const ExpenseForm=(props)=>{
+     const [enteredTitle,setEnteredTitle]=useState('');
+     const [enteredAmount,setEnteredAmount]=useState('');
+     const [enteredDate,setEnteredDate]=useState('');
     // const [userInput,setUserInput]=useState({
     //      enteredTitle:'',
     //      enteredAmount:'',
@@ -15,19 +16,19 @@ const ExpenseForm=()=>{
     
     const titleChangeHandler=(event)=>{
         
-            setenteredTitle(event.target.value)
+            setEnteredTitle(event.target.value)
     
         
        
     }
     const AmountChangeHandler=(event)=>{
-        setenteredAmount(event.target.value)
+        setEnteredAmount(event.target.value)
         
     }
-    const DateChangeHandler=(event)=>{
-        setenteredDate(event.target.value)
+     const DateChangeHandler=(event)=>{
+        setEnteredDate(event.target.value)
         
-    }
+     }
     const submitHandler=(event)=>{
         event.preventDefault();
         const expenseData={
@@ -37,6 +38,7 @@ const ExpenseForm=()=>{
             date:new Date(enteredDate)
         }
         console.log(expenseData)
+        props.onSaveExpenseData(expenseData);
     }
     
     return (
@@ -49,15 +51,15 @@ const ExpenseForm=()=>{
                 <div>
                       
                <label>Expense Amount</label>
-               <input type="number" onClick={AmountChangeHandler} min="0.01" step="0.01"/>
+               <input type="number"  onChange={AmountChangeHandler} min="0.01" step="0.01"/>
                 </div>
                  <div>
                  <label> Date</label>
-               <input type="date" onClick={DateChangeHandler}/>
+               <input type="date" onChange={ DateChangeHandler}/>
                  </div>
                
               <div>
-              <button onClick={submitHandler}>submit</button>
+              <button onClick={submitHandler}>Add Expense</button>
               </div>
               
             </form>

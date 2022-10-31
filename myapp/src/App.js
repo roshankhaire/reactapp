@@ -3,11 +3,12 @@ import './App.css';
 import Expense from './components/Expenses/Expense';
 
 import NewExpense from './components/NewExpense';
-function App() {
+import React,{useState} from 'react';
+
   // let expensedate=new Date(2021, 3 ,25)
   // let expenseTitle="School Fees"
   // let expenseAmount=299
-  let expenses=[
+  let DUMMY_EXPENSES=[
     {
       id:"e1",
       date:new Date(2021,5,4),
@@ -30,9 +31,20 @@ function App() {
 
     }
   ]
-  const addExpenseHandler=(expense)=>{
-    console.log(expense)
-  }
+
+
+  const App=()=>{
+
+     const [expenses,setExpenses]=useState(DUMMY_EXPENSES)
+
+     const addExpenseHandler = (expense) => {
+      setExpenses((prevExpenses) => {
+        return [expense, ...prevExpenses];
+      });
+    };
+
+
+
   return (
     <div className="App">
          <NewExpense onAddExpense={addExpenseHandler}/>
@@ -42,6 +54,8 @@ function App() {
        
     </div>
   );
-}
+  
+  }
+
 
 export default App;

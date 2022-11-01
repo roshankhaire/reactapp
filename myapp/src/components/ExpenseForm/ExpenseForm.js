@@ -40,6 +40,10 @@ const ExpenseForm=(props)=>{
         console.log(expenseData)
         props.onSaveExpenseData(expenseData);
     }
+    const [isEditing,setEditing]=useState(false)
+    const stopEditingHandler=()=>{
+        setEditing(false)
+    }
     
     return (
         
@@ -59,6 +63,7 @@ const ExpenseForm=(props)=>{
                  </div>
                
               <div>
+                <button type="button" onClick={props.onCancel}>Cancel</button>
               <button onClick={submitHandler}>Add Expense</button>
               </div>
               
